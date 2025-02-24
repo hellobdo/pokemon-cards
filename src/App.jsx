@@ -10,7 +10,6 @@ function App() {
   const [playedCards, setPlayedCards] = useState([]);
 
   useEffect(() => {
-    console.log("playedCards updated:", playedCards);
   }, [playedCards])
 
   useEffect(() => {
@@ -29,14 +28,13 @@ function App() {
     setPlayedCards(prevPlayedCards => [...prevPlayedCards, play]);
     const shuffled = randomiseCards(pokemonArray);
     setPokemonArray(shuffled);
-    console.log(play);
 
     if(!playedCards.includes(play)) {
       setCurrentScore(prevScore => prevScore + 1)
     } else {
       setScoreHistory(prevHistory => [...prevHistory, currentScore]);
       setPlayedCards([]);
-      console.log("already played", playedCards);
+      setCurrentScore(0);
     }
   }
 
