@@ -25,7 +25,9 @@ function App() {
         </div>
         <div className="cards">
           {randomiseCards(pokemonArray).map((pictureUrl, index) => (
-            <img key={index} src={pictureUrl} alt={`Pokemon ${index + 1}`}/>  
+            <div className="card" key={index}>
+              <img src={pictureUrl} alt={`Pokemon ${index + 1}`} />
+            </div>
           ))}
         </div>
       </div>

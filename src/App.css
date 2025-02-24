@@ -16,6 +16,7 @@
   /* Optional: set a minimum height if needed */
   min-height: 60px;
   color: black;
+  margin-bottom: 20px;
 }
 
 .header > div {
@@ -24,13 +25,37 @@
   font-size: 1.2em;
 }
 
-/* Cards area fills remaining space and displays items side by side */
 .cards {
-  flex: 1; /* Fills available space */
+  flex: 1;
   display: flex;
-  flex-wrap: wrap;   /* Items will wrap to new lines */
-  justify-content: center; /* Center items horizontally */
-  gap: 10px; /* Space between cards */
-  overflow-y: auto; /* Enable vertical scrolling if needed */
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  overflow-y: auto;
   padding: 10px;
+}
+
+/* Each card container is 300px x 200px */
+.card {
+  width: 300px;
+  height: 200px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid white;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+/* Make the image fill the container while maintaining its aspect ratio */
+.card img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* or 'contain' if you prefer the whole image always visible */
+}
+
+.card:hover {
+  cursor: pointer;
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
