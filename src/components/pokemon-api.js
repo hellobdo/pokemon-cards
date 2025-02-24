@@ -1,13 +1,13 @@
 const nrOfCards = 100;
-let pokemonArray = [];
 
-async function handlerAPI(url) {
+export async function handlerAPI(url) {
     const response = await fetch(url);
     const responseData = await response.json()
     return responseData;
 }
 
-async function getPokemonArray() {
+export async function getPokemonArray() {
+    let pokemonArray = [];
     for (let i = 1; i < nrOfCards + 1; i++) {
         let iString = i.toString();
         let url = 'https://pokeapi.co/api/v2/pokemon/' + iString;
@@ -17,7 +17,3 @@ async function getPokemonArray() {
     }
     return pokemonArray;
 }
-
-getPokemonArray().then(result => {
-    console.log(result);
-  });  
