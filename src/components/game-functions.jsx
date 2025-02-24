@@ -1,15 +1,17 @@
 export const gameFunctions = () => {
     const playedCards = [];
-    const bestScores  = [];
+    const scoreHistory  = [];
     let currentScore  = 0;
 
     const handleClick = (play) => {
         randomiseCards();
         !playedCards.includes(play) ?
             currentScore += 1 
-        :   bestScores.push(currentScore);
-            let maxScore = Math.max(...bestScores)
-            return maxScore;
+        :   scoreHistory.push(currentScore);
+    }
+
+    const maxScore = (scoreHistory) => {
+        return scoreHistory.length === 0 ? 0 : Math.max(...scoreHistory);
     }
 
     const randomiseCards = (array) => {
@@ -23,6 +25,10 @@ export const gameFunctions = () => {
     }
 
     return {
+        playedCards,
+        scoreHistory,
+        currentScore,
+        maxScore,
         handleClick,
         randomiseCards,
     }
